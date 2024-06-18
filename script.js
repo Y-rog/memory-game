@@ -162,6 +162,9 @@ function onCardClick(e){
                             winContent.textContent = `Bravo, vous avez gagné en ${minutes} minutes et ${seconds} secondes`;
                         }
                         win.appendChild(winContent);
+                        //On stocke le score en cookie
+                        let score = `${minutes}:${seconds}`;
+                        setCookie("score", score, 365);
                         //On stocke le score dans le tableau des scores en cookie
                         if (valueCookie("scores") != null){
                             let scores = JSON.parse(valueCookie("scores"));

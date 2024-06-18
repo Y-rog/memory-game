@@ -1,0 +1,99 @@
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#game-board{
+    display: grid; 
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    grid-gap:10px;
+    margin: 30px auto;
+    justify-content: center;
+}
+
+.card {
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+
+    /*animation*/
+    transform: rotateY(0deg);
+    transition: all 0.1s;
+}
+
+.card-content {
+    opacity: 0;
+    transition: all 0.1s;
+}
+
+.card.flip .card-content {
+    opacity: 1;
+    max-width: 100%;
+}
+
+.card.flip{
+    transform: rotateY(180deg);
+}
+
+.card.matched{
+    border: solid 4px green;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+#infos {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+#win {
+    font-size: 20px;
+    margin: 20px 0;
+    color: green;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#start-game {
+    background-color: green;
+}
+
+#start-game:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#reset-game {
+    background-color: rgba(233, 184, 8, 0.988);
+}
+
+h3 {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+#chrono {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    #game-board {
+        grid-template-columns: repeat(4, 70px);
+        grid-template-rows: repeat(4, 70px);
+    }
+}
+

@@ -270,6 +270,9 @@ function displayLastScore(){
 
 //On affiche le score moyen
 function displayAverageScore(){
+    if(valueCookie("scores") == null){
+        return;
+    }
     let scores = JSON.parse(valueCookie("scores"));
     let total = 0;
     scores.forEach(score => {

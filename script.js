@@ -30,7 +30,7 @@ const startChrono = () => {
         isStopped= false;
     }
     incrementSeconds();
-   //On active le gameBoard
+   //On desactive le bouton start
    startButton.disabled = true;
 }
 
@@ -133,7 +133,7 @@ function onCardClick(e){
         //On retourne la carte cliquée
         const card = e.target.parentElement;
         card.classList.add('flip');
-        //On ajoute une 2e carte à la liste des cartes sélectionnées
+        //On ajoute une carte à la liste des cartes sélectionnées
         selectedCards.push(card);
         //Si on a déjà 2 cartes sélectionnées, pour éviter les bugs
         if(selectedCards.length > 2){
@@ -180,8 +180,8 @@ function onCardClick(e){
                         setCookie("scores", JSON.stringify(scores), 365);
                         }
                         //On stocke le top score en cookie
-                        if( valueCookie("topScore") == null || valueCookie("topScore") > `${minutes}:${seconds}`){
-                            setCookie("topScore", `${minutes}:${seconds}`, 365);
+                        if( valueCookie("topScore") == null || valueCookie("topScore") > score){
+                            setCookie("topScore", score, 365);
                         }
                         //On met à jour l'affichage
                         displayTopScore();
